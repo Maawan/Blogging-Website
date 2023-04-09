@@ -58,6 +58,22 @@ app.get('/post/:id',(req,res)=>{
       res.redirect('/*');
     }
 })
+app.get('/api/post/:id',(req,res)=>{
+  var post = _.lowerCase(req.params.id)
+    var isFound = false;
+    for(let i = 0 ; i < postArray.length ; i++){
+      if(_.lowerCase(postArray[i].title) === post){
+          isFound = true;
+          res.send(postArray[i]);
+          break;
+      }
+    }
+    if(!isFound){
+      res.send({
+        status:'Post Unavailable'
+      });
+    }
+})
 app.get('/*',(req,res)=>{
   res.send("Kya hai bsdk ... Route galat hai ... Appkon se dekh ke daal ")
 })
