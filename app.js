@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+
 var getString = require('./util')
 var postArray = []
 var _ = require('lodash');
@@ -11,8 +12,9 @@ const mongoose = require('mongoose')
 // mongoose.connect('mongodb+srv://maawan-admin:maawan123@mydbserver.ntmdmxm.mongodb.net/blogging' , {
 //     useUnifiedTopology: true
 // })
-mongoose.connect('mongodb://0.0.0.0:27017/blogging' , {
-    useUnifiedTopology: true
+mongoose.connect('mongodb+srv://maawan-admin:maawan123@mydbserver.ntmdmxm.mongodb.net/blogging' , {
+    useUnifiedTopology: true,
+    useNewUrlParser : true
 })
 const postSchema = new mongoose.Schema({
   name:String,
